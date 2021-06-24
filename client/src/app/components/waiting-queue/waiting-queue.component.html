@@ -1,0 +1,60 @@
+<div style="width: 1200px; font-size: 79px; margin: auto;">
+<div class="list row">
+  
+    <div class="col-md-12">
+      <pagination-controls
+        previousLabel="Prev"
+        nextLabel="Next"
+        responsive="true"
+        (pageChange)="handlePageChange($event)"
+      ></pagination-controls>
+    </div>
+  
+    <div class="col-md-6">
+      <h4>Queue List</h4>
+  
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="
+            let queue of queueing | paginate : {
+                    itemsPerPage: pageSize,
+                    currentPage: page,
+                    totalItems: count
+                  };
+            let i = index
+          "
+          [class.active]="i == currentIndex"
+          (click)="setActiveQueue(queue, i)"
+        >
+          {{ queue.queueNumber }}
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <div *ngIf="currentQueue">
+        <h4>Now Serving</h4>
+        <div>
+          <label><strong>Queue Number:</strong></label> {{ currentQueue.queueNumber }}
+        </div>
+        <div>
+          <label><strong>Name:</strong></label>
+          {{ currentQueue.name }}
+        </div>
+      </div>
+  
+      <div *ngIf="!currentQueue">
+        <br />
+        <p>Waiting for customer.</p>
+      </div>
+    </div>
+  </div>
+    
+  
+      Items per Page:
+      <select (change)="handlePageSizeChange($event)">
+        <option *ngFor="let size of pageSizes" [ngValue]="size">
+          {{ size }}
+        </option>
+      </select>
+  </div>

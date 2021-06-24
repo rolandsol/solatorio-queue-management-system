@@ -1,0 +1,69 @@
+<div style="width: 400px; margin: auto;">
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+    <div class="form-group">
+        <label for="queueNumber">Queue Number</label>
+        <input type="text" class="form-control" id="queueNumber" required [(ngModel)]="queue.queueNumber"
+          name="queueNumber"/>
+    </div>
+
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" required [(ngModel)]="queue.name" name="name"/>
+    </div>
+
+    <div class="form-group">
+        <label for="idNo">ID Number</label>
+        <input type="text" class="form-control" id="idNo" required [(ngModel)]="queue.idNo" name="idNo"/>
+    </div>
+
+    <div class="form-group">
+        <label for="year">Year</label>
+        <input type="text" class="form-control" id="year" required [(ngModel)]="queue.year" name="year"/>
+    </div>
+
+    <div class="form-group">
+        <label for="course">Course</label>
+        <input type="text" class="form-control" id="course" required [(ngModel)]="queue.course" 
+        name="course"/>
+    </div>
+
+    <div class="form-group">
+        <label for="college">College</label>
+        <input type="text" class="form-control" id="college" required [(ngModel)]="queue.college" 
+        name="college"/>
+    </div>
+
+    <div class="form-group">
+        <label for="mobileNo">Mobile Number</label>
+        <input type="text" class="form-control" id="mobileNo" required [(ngModel)]="queue.mobileNo" 
+            name="mobileNo"/>
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" required [(ngModel)]="queue.email" 
+        name="email"/>
+    </div>
+
+    <div class="form-group">
+        <label for="service">Service</label>
+        <input type="text" class="form-control" id="service" required [(ngModel)]="queue.service" 
+        name="service"/>
+    </div>
+
+    <div class="form-group">
+      <label for="queuedAt">Date</label>
+      <input type="datetime-local" class="form-control" id="queuedAt" required [(ngModel)]="queue.queuedAt" 
+      name="queuedAt"/>
+  </div>
+
+      <button (click)="saveQueue()" class="btn btn-success">Enqueue</button>
+    </div>
+
+    <div *ngIf="submitted">
+      <h4>You enqueued up successfully!</h4>
+      <button class="btn btn-success" (click)="newQueue()">Add</button>
+    </div>
+  </div>
+</div>

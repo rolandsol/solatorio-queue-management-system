@@ -1,0 +1,86 @@
+<div style="width: 400px; margin: auto;">
+  <div *ngIf="currentQueue" class="edit-form">
+    <h4>Queue</h4>
+    <form>
+    <div class="form-group">
+        <label for="queueNumber">Queue Number</label>
+        <input type="text" class="form-control" id="queueNumber" [(ngModel)]="currentQueue.queueNumber"
+          name="queueNumber"/>
+    </div>
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" [(ngModel)]="currentQueue.name" name="name"/>
+    </div>
+    <div class="form-group">
+        <label for="idNo">ID Number</label>
+        <input type="text" class="form-control" id="idNo" [(ngModel)]="currentQueue.idNo" name="idNo"/>
+    </div>
+    <div class="form-group">
+        <label for="year">Year</label>
+        <input type="text" class="form-control" id="year" [(ngModel)]="currentQueue.year" name="year"/>
+    </div>
+    <div class="form-group">
+        <label for="course">Course</label>
+        <input type="text" class="form-control" id="course" [(ngModel)]="currentQueue.course" 
+        name="course"/>
+    </div>
+    <div class="form-group">
+        <label for="college">College</label>
+        <input type="text" class="form-control" id="college" [(ngModel)]="currentQueue.college" 
+        name="college"/>
+    </div>
+    <div class="form-group">
+        <label for="mobileNo">Mobile Number</label>
+        <input type="text" class="form-control" id="mobileNo" [(ngModel)]="currentQueue.mobileNo" 
+        name="mobileNo"/>
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" [(ngModel)]="currentQueue.email" name="email"/>
+    </div>
+    <div class="form-group">
+        <label for="service">Service</label>
+        <input type="text" class="form-control" id="service" [(ngModel)]="currentQueue.service" 
+        name="service"/>
+    </div>
+
+    <div class="form-group">
+        <label><strong>Status:</strong></label>
+        {{ currentQueue.served ? "Served" : "Waiting" }}
+    </div>
+    </form>
+
+    <button
+      class="m-3 btn btn-sm btn-danger"
+      *ngIf="currentQueue.served"
+      (click)="updateServed(false)"
+    >
+      Unserved
+    </button>
+    <button
+      *ngIf="!currentQueue.served"
+      class="btn btn-success"
+      (click)="updateServed(true)"
+    >
+      Served
+    </button>
+
+    <button class="m-3 btn btn-sm btn-danger" (click)="deleteQueue()">
+      Delete
+    </button>
+
+    <button
+      type="submit"
+      class="btn btn-outline-secondary"
+      (click)="updateQueue()"
+    >
+      Update
+    </button>
+    <p>{{ message }}</p>
+  </div>
+
+  <div *ngIf="!currentQueue">
+    <br />
+    <p>Cannot access this Queue Number...</p>
+  </div>
+</div>
