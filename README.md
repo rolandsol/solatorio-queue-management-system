@@ -11,6 +11,8 @@ PROJECT 1
 
 FULLSTACK USED: MongoDB, Express, Angular, Node.js
 
+Video demo: https://drive.google.com/file/d/1Qm5nL-F8CGAvCCmB69dK9fPuZPLBBdKg/view?usp=sharing
+
 
 --------------------------------------------------------------------------------------------------------------------
 
